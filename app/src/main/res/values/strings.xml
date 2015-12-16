@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Citas</string>
+    <string name="login_title">Login</string>
+    <string name="user">Usuario</string>
+    <string name="phoneNumber">Número Teléfono</string>
+    <string name="password">Clave</string>
+    <string name="remember">Recordar Clave</string>
+    <string name="restorePassword">Recuperar contraseña</string>
+    <string name="buttonRegister">Registrar</string>
+    <string name="buttonLogin">Ingresar</string>
+
+</resources>
