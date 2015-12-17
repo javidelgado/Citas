@@ -19,9 +19,6 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Administrador on 16/12/15.
- */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final String LOGIN_URL = "http://www.mercedesvalera.es/ws/userGetByLogin.php";
@@ -32,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonLogin;
+    private Button buttonRegister;
 
     private String username;
     private String password;
@@ -45,8 +43,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = (EditText) findViewById(R.id.password);
 
         buttonLogin = (Button) findViewById(R.id.btnLogin);
+        buttonRegister = (Button) findViewById(R.id.btnRegister);
 
         buttonLogin.setOnClickListener(this);
+        buttonRegister.setOnClickListener(this);
+
     }
 
     private void userLogin() {
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> map = new HashMap<String,String>();
+                Map<String,String> map = new HashMap<>();
                 map.put(KEY_USERNAME,username);
                 map.put(KEY_PASSWORD,password);
                 return map;
@@ -93,10 +94,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Toast.makeText(LoginActivity.this,"pasa",Toast.LENGTH_LONG).show() ;
     }
 
+
+
+    private void userRegister() {
+
+        Intent i = new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(i);
+
+    }
+
     @Override
     public void onClick(View v) {
 
-        userLogin();
+        if (v == buttonLogin) {
+            userLogin();
+        }
+
+        if (v == buttonRegister) {
+
+            userRegister();
+
+        }
 
     }
 }
